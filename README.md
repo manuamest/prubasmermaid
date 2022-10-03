@@ -1,3 +1,20 @@
+## Diseños UML
+```mermaid
+classDiagram
+    class Modelo {
+	}
+	class Vista {
+	}
+	class Controlador {
+	}
+	Controlador ...> Vista;
+	Controlador ...> Modelo;
+	Vista ..> Gtk : << uses >>
+	class Gtk
+	<<package>> Gtk
+```
+
+
 # Documentacion
 ## Diseño
 Para la creación de esta aplicación hemos escogido el **patrón MVC**, este patrón convierte el desarrollo de aplicaciones complejas en un proceso mucho más manejable. Permite a varios desarrolladores trabajar simultáneamente en la aplicación.
@@ -23,15 +40,3 @@ Para la creación de esta aplicación hemos escogido el **patrón MVC**, este pa
 > controlador.py
 
  cerebro de la aplicación, comunica todos los ficheros entre sí, convirtiendo una interacción del usuario en una respuesta
-
-## Diseños UML
-```mermaid
-classDiagram
-    class Model {
-	}
-	class View {
-	}
-	View ..> Gtk : << uses >>
-	class Gtk
-	<<package>> Gtk
-```
