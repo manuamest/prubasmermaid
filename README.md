@@ -1,19 +1,32 @@
 ## Diseños UML
+### Estructura del patron
 ```mermaid
-classDiagram
-    class Modelo {
-	}
-	class Vista {
-	}
-	class Controlador {
-	}
-	Controlador ...> Vista;
-	Controlador ...> Modelo;
-	Vista ..> Gtk : << uses >>
-	class Gtk
-	<<package>> Gtk
+graph TD;
+	Controlador -- Inicia --> Vista;
+	Controlador -- Modifica --> Modelo;
+	Modelo --> cheathelper.py;
+	Vista --> card.py;
+	Vista --> Inicio.py;
+	Vista --> Not_found.py;
+	Vista --> Resultados.py;
+	Vista --> Error_Serv.py;
 ```
-
+### Diagrama de estados
+```mermaid
+stateDiagram-v2
+[*] --> Buscar
+Buscar --> Error: No funciona
+Buscar --> Encontrado: Funciona
+Encontrado --> Resultados: SI
+Encontrado --> ErrorBusqueda: NO
+ErrorBusqueda --> Buscar
+Resultados --> Ampliar
+Ampliar --> Buscar
+Resultados --> Buscar
+Error --> [*]
+ErrorBusqueda --> [*]
+Resultados --> [*]
+```
 
 # Documentacion
 ## Diseño
